@@ -1,0 +1,236 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+/* Pannello di Controllo */
+.control-panel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    align-items: flex-end;
+}
+
+.input-group {
+    flex: 1;
+    min-width: 150px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    box-sizing: border-box;
+    /* Importante per il padding */
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+    height: 42px;
+    /* Allinea col box input */
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Riepilogo */
+.summary {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+    gap: 20px;
+}
+
+.box {
+    flex: 1;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.valore {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.positivo {
+    color: #28a745;
+}
+
+.negativo {
+    color: #dc3545;
+}
+
+.neutro {
+    color: #495057;
+}
+
+/* Tabella */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #e9ecef;
+}
+
+th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+.btn-elimina {
+    background-color: #dc3545;
+    padding: 5px 10px;
+    font-size: 0.8em;
+    height: auto;
+}
+
+.btn-elimina:hover {
+    background-color: #c82333;
+}
+
+/* ... Copia tutto lo stile precedente e AGGIUNGI/SOSTITUISCI queste parti ... */
+
+.control-panel {
+    display: block;
+    /* Cambiato da flex a block per gestire le righe */
+    padding: 25px;
+}
+
+.row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    align-items: flex-end;
+}
+
+.calculator-box {
+    background-color: #e3f2fd;
+    /* Azzurrino per evidenziare il calcolo */
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px dashed #2196f3;
+    align-items: center;
+}
+
+.arrow {
+    font-size: 1.5rem;
+    color: #2196f3;
+    padding-top: 15px;
+}
+
+/* Nascondiamo il calcolatore se è una spesa */
+.hidden {
+    display: none !important;
+}
+
+.btn-home-floating {
+    position: fixed;
+    /* Lo fissa rispetto alla finestra del browser */
+    bottom: 30px;
+    /* Distanza dal fondo */
+    right: 30px;
+    /* Distanza da destra */
+    background-color: #343a40;
+    /* Colore scuro (elegante) */
+    color: white;
+    /* Colore testo */
+    padding: 15px 25px;
+    /* Grandezza bottone */
+    border-radius: 50px;
+    /* Arrotondamento (pillola) */
+    text-decoration: none;
+    /* Toglie la sottolineatura del link */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    /* Ombra per effetto "galleggiamento" */
+    font-weight: bold;
+    font-size: 1rem;
+    z-index: 1000;
+    /* Assicura che stia sopra a tutto il resto */
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+/* Effetto quando passi sopra col mouse */
+.btn-home-floating:hover {
+    background-color: #000;
+    transform: scale(1.05);
+    /* Si ingrandisce leggermente */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Stile specifico per la Tabella Mensile */
+.monthly-table {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    /* Per arrotondare gli angoli */
+}
+
+.monthly-table thead th {
+    background-color: #2c3e50;
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.monthly-table td {
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+/* Evidenzia il netto */
+.monthly-table td:last-child {
+    background-color: #f9f9f9;
+    border-left: 2px solid #ddd;
+}

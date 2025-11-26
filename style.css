@@ -1,0 +1,200 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans', 'Arial', sans-serif;
+}
+
+/* Sfondo animato */
+.bc {
+    background: linear-gradient(-45deg, #1A1A2E, #16213E, #23A6D5, #E73C7E);
+    background-size: 400% 400%;
+    animation: gradbar 15s ease infinite;
+    min-height: 100vh;
+}
+
+/* Centratura Layout */
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+h1 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 0.5rem;
+}
+
+.header-content {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+/* Griglia delle Card */
+.cards {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 20rem;
+    /* Leggermente più larghe */
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+/* Stile Esterno Card (Il bordo colorato che appare) */
+.card__outer {
+    background: #ebecee;
+    position: relative;
+    height: 24rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card__outer a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.card__outer a svg {
+    margin-left: 0.5rem;
+    width: 1.2rem;
+}
+
+/* Stile Interno Card (Bianco) */
+.card__inner {
+    background: #fff;
+    position: absolute;
+    bottom: 4rem;
+    right: 1.25rem;
+    width: calc(100% - 2.5rem);
+    height: 85%;
+    border-radius: 0.8rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.icon svg {
+    width: 3rem;
+    margin-bottom: 1rem;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: auto;
+}
+
+.price {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 1rem;
+}
+
+.price--number {
+    font-size: 2.5rem;
+    /* Numero grande */
+    font-weight: 700;
+    line-height: 1;
+    color: #333;
+}
+
+.price--dolar {
+    font-size: 1.2rem;
+    margin-top: 5px;
+    margin-right: 5px;
+    color: #999;
+}
+
+/* --- STATI ATTIVI E COLORI --- */
+
+/* Quando una card è attiva (hover o default) */
+.card.active .card__outer {
+    transform: translateY(-10px);
+}
+
+.card.active .card__outer a {
+    color: #fff;
+}
+
+/* Viola (P.IVA) */
+.card--purple.active .card__outer {
+    background: #6824d6;
+    box-shadow: 0 15px 30px rgba(104, 36, 214, 0.4);
+}
+
+.card--purple .icon svg {
+    color: #6824d6;
+}
+
+/* Rosso (Personale) */
+.card--red.active .card__outer {
+    background: #fe3258;
+    box-shadow: 0 15px 30px rgba(254, 50, 88, 0.4);
+}
+
+.card--red .icon svg {
+    color: #fe3258;
+}
+
+/* Verde (Uni) */
+.card--green.active .card__outer {
+    background: #4ccda7;
+    box-shadow: 0 15px 30px rgba(76, 205, 167, 0.4);
+}
+
+.card--green .icon svg {
+    color: #4ccda7;
+}
+
+
+/* Animazione Background */
+@keyframes gradbar {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 720px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 320px;
+    }
+}

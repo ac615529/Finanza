@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestore RUI Sez. E - Mensile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Gestione Finanza RUI-E</h1>
+
+        <div class="control-panel">
+            <div class="row">
+                <div class="input-group"><label>Data</label><input type="date" id="inputData"></div>
+                <div class="input-group" style="flex: 2;"><label>Descrizione</label><input type="text" id="inputDesc"
+                        placeholder="Descrizione"></div>
+                <div class="input-group">
+                    <label>Tipo</label>
+                    <select id="inputTipo" onchange="gestisciTipo()">
+                        <option value="entrata">Provvigione (+)</option>
+                        <option value="uscita">Spesa (-)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row calculator-box" id="boxCalcolo">
+                <div class="input-group"><label>Premio Polizza (€)</label><input type="number" id="inputPremio"
+                        oninput="calcolaProvvigione()"></div>
+                <div class="input-group"><label>% Provv.</label><input type="number" id="inputPerc"
+                        oninput="calcolaProvvigione()"></div>
+                <div class="arrow">➜</div>
+                <div class="input-group"><label style="color:green;">Guadagno (€)</label><input type="number"
+                        id="inputImporto" style="background:#f0fff4;"></div>
+            </div>
+            <button onclick="aggiungiTransazione()" style="width:100%; margin-top:10px;">Registra</button>
+        </div>
+
+        <hr style="margin: 30px 0; border-top: 1px solid #ddd;">
+
+        <h2 style="color:#2c3e50;">📊 Report Mensile (Utile & Tasse)</h2>
+        <table class="monthly-table">
+            <thead>
+                <tr>
+                    <th>Mese</th>
+                    <th>Fatturato Lordo</th>
+                    <th>Spese Vive</th>
+                    <th>Tasse (Stato)</th>
+                    <th>Costi Fissi (INPS+Comm)</th>
+                    <th>NETTO PULITO</th>
+                </tr>
+            </thead>
+            <tbody id="tabellaReportBody">
+            </tbody>
+        </table>
+
+        <br><br>
+
+        <h3 style="color:#7f8c8d;">Dettaglio Movimenti</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Descrizione</th>
+                    <th>Info</th>
+                    <th>Importo</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="tabellaBody"></tbody>
+        </table>
+    </div>
+
+    <a href="../index.html" class="btn-home-floating">🏠 Home</a>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

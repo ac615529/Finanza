@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestione Finanza Personale</title>
+    <link rel="stylesheet" href="style.CSS">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>🏡 Finanza Personale & Casa</h1>
+
+        <div class="panel">
+            <h3>📝 Spese Quotidiane / Entrate Extra</h3>
+            <div class="row">
+                <div class="input-group"><label>Data</label><input type="date" id="inputData"></div>
+                <div class="input-group" style="flex:2"><label>Descrizione</label><input type="text" id="inputDesc"
+                        placeholder="Es. Spesa Supermercato"></div>
+                <div class="input-group"><label>Importo €</label><input type="number" id="inputImporto" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label>Tipo</label>
+                    <select id="inputTipo">
+                        <option value="uscita">Uscita (-)</option>
+                        <option value="entrata">Entrata Extra (+)</option>
+                    </select>
+                </div>
+            </div>
+            <button onclick="aggiungiTransazione()">Aggiungi Movimento</button>
+        </div>
+
+        <div class="panel" style="border-left: 5px solid #9b59b6;">
+            <h3>📅 Costi Fissi & Ammortamenti</h3>
+            <p style="font-size:0.9em; color:#666;">Inserisci spese grandi (es. Assicurazione, Vacanza, Abbonamenti) per
+                spalmarle nei mesi.</p>
+            <div class="row">
+                <div class="input-group" style="flex:2"><label>Nome Costo Fisso</label><input type="text" id="fixNome"
+                        placeholder="Es. Assicurazione Auto"></div>
+                <div class="input-group"><label>Costo Totale €</label><input type="number" id="fixImporto" step="0.01">
+                </div>
+                <div class="input-group"><label>Inizio (Data)</label><input type="date" id="fixInizio"></div>
+                <div class="input-group"><label>Durata (Mesi)</label><input type="number" id="fixMesi" placeholder="12">
+                </div>
+            </div>
+            <button onclick="aggiungiCostoFisso()" style="background-color: #9b59b6;">Crea Piano di
+                Ammortamento</button>
+        </div>
+
+        <hr>
+
+        <h2>📊 Bilancio Mensile Familiare</h2>
+        <div class="info-box">
+            ℹ️ Il sistema importa <b>automaticamente</b> il netto della tua Partita IVA il <b>15 di ogni mese</b>
+            (riferito al mese lavorativo precedente).
+        </div>
+
+        <table class="monthly-table">
+            <thead>
+                <tr>
+                    <th>Mese</th>
+                    <th>Stipendio (P.IVA) + Extra</th>
+                    <th>Spese Variabili</th>
+                    <th>Costi Fissi (Quota Mese)</th>
+                    <th>RISPARMIO NETTO</th>
+                </tr>
+            </thead>
+            <tbody id="tabellaBilancio">
+            </tbody>
+        </table>
+
+        <br>
+
+        <h3>Lista Costi Fissi Attivi</h3>
+        <table style="font-size: 0.9em;">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Totale</th>
+                    <th>Scadenza</th>
+                    <th>Rata Mensile</th>
+                    <th>Azioni</th>
+                </tr>
+            </thead>
+            <tbody id="tabellaFissi"></tbody>
+        </table>
+    </div>
+
+    <a href="../index.html" class="btn-home-floating">🏠 Home</a>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

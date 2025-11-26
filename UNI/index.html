@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestione Università</title>
+    <link rel="stylesheet" href="uni_style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>🎓 Piano Studi & Libretto</h1>
+
+        <div class="stats-bar">
+            <div class="stat-box">
+                <div>Media Ponderata</div>
+                <div class="big-num" id="statPonderata">0.00</div>
+                <small>Base Laurea: <span id="statBaseLaurea">0</span></small>
+            </div>
+            <div class="stat-box">
+                <div>Media Aritmetica</div>
+                <div class="big-num" id="statAritmetica">0.00</div>
+            </div>
+            <div class="stat-box">
+                <div>CFU Totali</div>
+                <div class="big-num"><span id="statCFU">0</span> <span style="font-size:0.5em; color:#999;">/ 180</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <h3>Aggiungi Esame al Piano</h3>
+            <div class="row">
+                <div class="input-group" style="flex:2"><label>Materia</label><input type="text" id="inNome"
+                        placeholder="Es. Diritto Privato"></div>
+                <div class="input-group"><label>CFU</label><input type="number" id="inCFU" placeholder="6"></div>
+                <div class="input-group"><label>Data Appello</label><input type="date" id="inData"></div>
+            </div>
+            <button onclick="aggiungiEsame()">Pianifica Esame</button>
+        </div>
+
+        <div class="split-view">
+            <div class="col">
+                <h3>📅 Prossimi Esami</h3>
+                <div id="listaFuturi"></div>
+            </div>
+
+            <div class="col">
+                <h3>✅ Libretto Voti</h3>
+                <div id="listaPassati"></div>
+            </div>
+        </div>
+    </div>
+
+    <a href="../index.html" class="btn-home-floating">🏠 Home</a>
+    <script src="uni_script.js"></script>
+</body>
+
+</html>
