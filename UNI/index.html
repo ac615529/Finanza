@@ -4,57 +4,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestione Università</title>
+    <title>Piano Studi & Agenda</title>
     <link rel="stylesheet" href="uni_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
     <div class="container">
-        <h1>🎓 Piano Studi & Libretto</h1>
+        <h1>🎓 Study Command Center</h1>
 
-        <div class="stats-bar">
-            <div class="stat-box">
-                <div>Media Ponderata</div>
-                <div class="big-num" id="statPonderata">0.00</div>
-                <small>Base Laurea: <span id="statBaseLaurea">0</span></small>
+        <div class="progress-section">
+            <div class="progress-labels">
+                <span>Progresso Laurea</span>
+                <span id="labelCFU">0 / 180 CFU</span>
             </div>
-            <div class="stat-box">
-                <div>Media Aritmetica</div>
-                <div class="big-num" id="statAritmetica">0.00</div>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="barLaurea" style="width: 0%"></div>
             </div>
-            <div class="stat-box">
-                <div>CFU Totali</div>
-                <div class="big-num"><span id="statCFU">0</span> <span style="font-size:0.5em; color:#999;">/ 180</span>
+            <div class="stats-mini">
+                <span>Media: <b id="statMedia">0.00</b></span>
+                <span>Base Laurea: <b id="statBase">0</b></span>
+            </div>
+        </div>
+
+        <div class="main-grid">
+
+            <div class="left-col">
+                <div class="panel">
+                    <h3>➕ Aggiungi Esame al Piano</h3>
+                    <div class="input-group"><input type="text" id="inNome" placeholder="Materia (es. Analisi 1)"></div>
+                    <div class="row">
+                        <div class="input-group"><input type="number" id="inCFU" placeholder="CFU"></div>
+                        <div class="input-group"><input type="date" id="inData"></div>
+                    </div>
+                    <button onclick="aggiungiEsame()">Pianifica Esame</button>
                 </div>
-            </div>
-        </div>
 
-        <div class="panel">
-            <h3>Aggiungi Esame al Piano</h3>
-            <div class="row">
-                <div class="input-group" style="flex:2"><label>Materia</label><input type="text" id="inNome"
-                        placeholder="Es. Diritto Privato"></div>
-                <div class="input-group"><label>CFU</label><input type="number" id="inCFU" placeholder="6"></div>
-                <div class="input-group"><label>Data Appello</label><input type="date" id="inData"></div>
-            </div>
-            <button onclick="aggiungiEsame()">Pianifica Esame</button>
-        </div>
+                <h3>📋 Prossimi Appelli</h3>
+                <div id="listaFuturi" class="scroll-list"></div>
 
-        <div class="split-view">
-            <div class="col">
-                <h3>📅 Prossimi Esami</h3>
-                <div id="listaFuturi"></div>
-            </div>
-
-            <div class="col">
                 <h3>✅ Libretto Voti</h3>
-                <div id="listaPassati"></div>
+                <div id="listaPassati" class="scroll-list"></div>
             </div>
+
+            <div class="right-col">
+                <div class="calendar-wrapper">
+                    <div class="calendar-header">
+                        <button onclick="cambiaMese(-1)">&#10094;</button>
+                        <h3 id="meseCorrente">Mese Anno</h3>
+                        <button onclick="cambiaMese(1)">&#10095;</button>
+                    </div>
+                    <div class="calendar-grid" id="calendarGrid">
+                    </div>
+                    <div style="text-align:center; font-size:0.8rem; margin-top:10px; color:#666;">
+                        <span style="color:#e67e22">●</span> Esame &nbsp;
+                        <span style="color:#3498db">●</span> Studio Pianificato
+                    </div>
+                </div>
+
+                <div class="agenda-wrapper" id="agendaSection">
+                    <h3 class="agenda-title">
+                        📅 Agenda: <span id="selectedDateDisplay">Oggi</span>
+                    </h3>
+
+                    <div id="todoList" class="todo-list">
+                        <p class="empty-msg">Seleziona un giorno per pianificare lo studio.</p>
+                    </div>
+
+                    <div class="add-task-box">
+                        <input type="text" id="taskInput" placeholder="Cosa devi studiare? (es. Cap 3 Storia)">
+                        <input type="text" id="taskMateria" placeholder="Materia" style="width: 30%;">
+                        <button onclick="aggiungiTask()">+</button>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </div>
 
-    <a href="../index.html" class="btn-home-floating">🏠 Home</a>
+    <a href="../index.html" class="btn-home-floating">🏠 Dashboard</a>
     <script src="uni_script.js"></script>
 </body>
 

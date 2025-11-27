@@ -36,7 +36,7 @@
                             <span class="price price--number" id="valorePiva">0</span>
                         </p>
                     </div>
-                    <a href="/Sites/frontend/src/assets/P.IVA/index.html">
+                    <a href="C:\Users\ac615\Desktop\Finanza\P.IVA\index.html">
                         Vai al Gestionale
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                             <path fill-rule="evenodd"
@@ -63,7 +63,7 @@
                             <span class="price price--number" id="valorePersonale" style="font-size: 1.5rem;">OK</span>
                         </p>
                     </div>
-                    <a href="/Sites/frontend/src/assets/Personale/index.html">
+                    <a href="C:\Users\ac615\Desktop\Finanza\Personale\index.html">
                         Vai alle Spese
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                             <path fill-rule="evenodd"
@@ -91,7 +91,7 @@
                             <span class="price price--dolar">/30</span>
                         </p>
                     </div>
-                    <a href="/Sites/frontend/src/assets/UNI/index.html">
+                    <a href="C:\Users\ac615\Desktop\Finanza\UNI\index.html">
                         Piano Studi
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                             <path fill-rule="evenodd"
@@ -109,3 +109,15 @@
 </body>
 
 </html>
+<div style="margin-top: 20px; text-align: center;">
+    <button onclick="scaricaBackup()"
+        style="background-color: #333; color: white; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+        💾 Scarica Backup Dati
+    </button>
+
+    <button onclick="document.getElementById('fileInput').click()"
+        style="background-color: #555; color: white; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+        📂 Carica Backup
+    </button>
+    <input type="file" id="fileInput" style="display: none;" onchange="caricaBackup(this)">
+</div>
